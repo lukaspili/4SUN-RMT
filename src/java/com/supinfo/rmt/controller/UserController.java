@@ -33,9 +33,9 @@ public class UserController {
         loggedUser = userService.login(username, password);
         
         if(loggedUser instanceof Manager) {
-            return "manager_home";
+            return "manager_home?faces-redirect=true";
         } else if (loggedUser instanceof Employee) {
-            return "employee_home";
+            return "employee_home?faces-redirect=true";
         } else {
             return null;
         }

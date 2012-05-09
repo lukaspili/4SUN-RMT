@@ -29,12 +29,6 @@ public class FixturesServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Employee employee = new Employee();
-        employee.setUsername("lukas");
-        employee.setPassword("pass");
-        employee.setFirstname("Lukas");
-        employee.setLastname("Pili");
-        employee.setBirthDate(new Date(1989, 07, 18));
         
         Manager manager = new Manager();
         manager.setUsername("alick");
@@ -42,8 +36,16 @@ public class FixturesServlet extends HttpServlet {
         manager.setFirstname("Alick");
         manager.setLastname("Mouriesse");
         manager.setBirthDate(new Date(1970, 01, 01));
-        
-        userService.save(employee);
         userService.save(manager);
+        
+        Employee employee = new Employee();
+        employee.setUsername("lukas");
+        employee.setPassword("pass");
+        employee.setFirstname("Lukas");
+        employee.setLastname("Pili");
+        employee.setBirthDate(new Date(1989, 07, 18));
+        employee.setManager(manager);
+        userService.save(employee);
+        
     }
 }
