@@ -32,12 +32,17 @@ public class UserController {
     public String login() {
         loggedUser = userService.login(username, password);
         
+        if(null == loggedUser) {
+            return null;
+        }
+        
+        username = null;
+        password = null;
+        
         if(loggedUser instanceof Manager) {
             return "manager_home?faces-redirect=true";
-        } else if (loggedUser instanceof Employee) {
-            return "employee_home?faces-redirect=true";
         } else {
-            return null;
+            return "employee_home?faces-redirect=true";
         }
     }
 

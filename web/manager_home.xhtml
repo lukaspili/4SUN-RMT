@@ -10,6 +10,8 @@
         <h1>Manager home</h1>
         <p>Welcome <h:outputText value="#{userController.loggedUser.firstname}"/></p>
         
+        <h3>Employees</h3>
+        
         <h:dataTable value="#{employeeController.dataModel}" var="employee">
             <h:column>
                 <f:facet name="header">
@@ -25,8 +27,13 @@
             </h:column>
         </h:dataTable>
         
+        <h3>Links </h3>
+        
         <h:outputLink value="add_employee.xhtml">
             <h:outputText value="Add employee"/>
+        </h:outputLink> |
+        <h:outputLink value="add_client.xhtml">
+            <h:outputText value="Add client"/>
         </h:outputLink>
     </h:body>
 </html>
