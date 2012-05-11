@@ -6,6 +6,7 @@ package com.supinfo.rmt.model;
 
 import java.util.Date;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -17,15 +18,19 @@ public class Worktime {
     @Id @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     
+    @NotNull
     @ManyToOne @JoinColumn
     private Client client;
     
+    @NotNull
     @ManyToOne @JoinColumn
     private Employee employee;
     
+    @NotNull
     @Temporal(TemporalType.DATE)
     private Date beginDate;
     
+    @NotNull
     @Temporal(TemporalType.DATE)
     private Date endDate;
 

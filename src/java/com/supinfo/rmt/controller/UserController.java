@@ -11,6 +11,7 @@ import com.supinfo.rmt.service.UserService;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 /**
@@ -24,7 +25,10 @@ public class UserController {
     @EJB
     private UserService userService;
     
+    @NotEmpty
     private String username;
+    
+    @NotEmpty
     private String password;
     
     private User loggedUser;

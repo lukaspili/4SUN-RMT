@@ -7,6 +7,7 @@ package com.supinfo.rmt.model;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -15,6 +16,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Employee extends User {
     
+    @NotNull
     @ManyToOne @JoinColumn
     private Manager manager;
 
